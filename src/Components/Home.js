@@ -12,6 +12,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import MenuItem from "@mui/material/MenuItem";
+import Divider from "@mui/material/Divider";
 
 export default function Home() {
   let date = new Date().toLocaleDateString();
@@ -150,7 +151,8 @@ export default function Home() {
   };
 
   const markAsDone = (id, title, desc) => {
-    toast.success(`Task Completed ${id} - ${title} - ${desc}`, {
+    deleteTask(id);
+    toast.success("Marked As Done!", {
       position: "bottom-right",
       theme: "light",
     });
