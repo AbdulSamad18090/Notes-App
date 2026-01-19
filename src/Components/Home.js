@@ -174,7 +174,7 @@ export default function Home() {
           <div className="date">
             <CalendarMonthOutlinedIcon
               fontSize="medium"
-              htmlColor="#3d7a3d"
+              htmlColor="#228B22"
               sx={{ marginRight: "7px" }}
             />
             {cDate}
@@ -182,7 +182,7 @@ export default function Home() {
           <div className="time">
             <AccessTimeOutlinedIcon
               fontSize="medium"
-              htmlColor="#3d7a3d"
+              htmlColor="#228B22"
               sx={{ marginRight: "7px" }}
             />
             {cTime}
@@ -316,7 +316,7 @@ export default function Home() {
                   </div>
                   <div className="actions">
                     <ModeEditOutlinedIcon
-                      htmlColor="#d4a017"
+                      htmlColor="#2E8B57"
                       onClick={() => {
                         updateTask(task.id, task.title, task.description);
                       }}
@@ -328,7 +328,7 @@ export default function Home() {
                       }}
                     />
                     <HighlightOffIcon
-                      htmlColor="#c73e3e"
+                      htmlColor="#145214"
                       onClick={() => {
                         deleteTask(task.id);
                       }}
