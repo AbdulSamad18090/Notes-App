@@ -174,7 +174,7 @@ export default function Home() {
           <div className="date">
             <CalendarMonthOutlinedIcon
               fontSize="medium"
-              htmlColor="#228B22"
+              htmlColor="#f1f1f1"
               sx={{ marginRight: "7px" }}
             />
             {cDate}
@@ -182,7 +182,7 @@ export default function Home() {
           <div className="time">
             <AccessTimeOutlinedIcon
               fontSize="medium"
-              htmlColor="#228B22"
+              htmlColor="#f1f1f1"
               sx={{ marginRight: "7px" }}
             />
             {cTime}
@@ -190,9 +190,10 @@ export default function Home() {
         </div>
         <Fab
           sx={{
-            background: "#228B22",
+            background: "#f1f1f1",
+            color: "#228B22",
             "&:hover": {
-              background: "#1e6b1e",
+              background: "#e0e0e0",
             },
             position: "absolute",
             left: "80%",
@@ -316,19 +317,22 @@ export default function Home() {
                   </div>
                   <div className="actions">
                     <ModeEditOutlinedIcon
-                      htmlColor="#2E8B57"
+                      htmlColor="#228B22"
+                      sx={{ cursor: "pointer", "&:hover": { color: "#1e6b1e" } }}
                       onClick={() => {
                         updateTask(task.id, task.title, task.description);
                       }}
                     />
                     <CheckCircleOutlinedIcon
                       htmlColor="#228B22"
+                      sx={{ cursor: "pointer", "&:hover": { color: "#1e6b1e" } }}
                       onClick={() => {
                         markAsDone(task.id, task.title, task.description);
                       }}
                     />
                     <HighlightOffIcon
-                      htmlColor="#145214"
+                      htmlColor="#228B22"
+                      sx={{ cursor: "pointer", "&:hover": { color: "#1e6b1e" } }}
                       onClick={() => {
                         deleteTask(task.id);
                       }}
