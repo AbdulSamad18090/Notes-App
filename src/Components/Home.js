@@ -174,7 +174,7 @@ export default function Home() {
           <div className="date">
             <CalendarMonthOutlinedIcon
               fontSize="medium"
-              htmlColor="#67649d"
+              htmlColor="#f1f1f1"
               sx={{ marginRight: "7px" }}
             />
             {cDate}
@@ -182,7 +182,7 @@ export default function Home() {
           <div className="time">
             <AccessTimeOutlinedIcon
               fontSize="medium"
-              htmlColor="#67649d"
+              htmlColor="#f1f1f1"
               sx={{ marginRight: "7px" }}
             />
             {cTime}
@@ -190,7 +190,11 @@ export default function Home() {
         </div>
         <Fab
           sx={{
-            background: "#8bbd1a",
+            background: "#f1f1f1",
+            color: "#228B22",
+            "&:hover": {
+              background: "#e0e0e0",
+            },
             position: "absolute",
             left: "80%",
           }}
@@ -207,22 +211,22 @@ export default function Home() {
           <form
             className="form"
             style={{
-              border: "1px solid #4a478b",
+              border: "1px solid #228B22",
               padding: "10px",
               borderRadius: "5px",
-              boxShadow: "#4a478b 0px 3px 8px",
+              boxShadow: "#228B22 0px 3px 8px",
               textAlign: "center",
             }}
           >
             <h1>{isUpdating ? "Update Task" : "Create New Task"}</h1>
             <TextField
               size="small"
-              sx={{ my: 2 }}
+              sx={{ my: 2, '& .MuiOutlinedInput-root': { '&.Mui-focused fieldset': { borderColor: '#228B22' } }, '& .MuiInputLabel-root.Mui-focused': { color: '#228B22' } }}
               label="Title"
               variant="outlined"
               placeholder="Enter Title"
               fullWidth
-              color="secondary"
+              color="success"
               value={title}
               onChange={(e) => {
                 setTitle(e.target.value);
@@ -234,7 +238,8 @@ export default function Home() {
               variant="outlined"
               fullWidth
               multiline
-              color="secondary"
+              color="success"
+              sx={{ '& .MuiOutlinedInput-root': { '&.Mui-focused fieldset': { borderColor: '#228B22' } }, '& .MuiInputLabel-root.Mui-focused': { color: '#228B22' } }}
               placeholder="Enter Description"
               rows={3}
               value={Description}
@@ -245,10 +250,9 @@ export default function Home() {
             <div className="btns">
               <ButtonGroup fullWidth>
                 <Button
-                  sx={{ my: 2 }}
+                  sx={{ my: 2, borderColor: '#228B22', color: '#228B22', '&:hover': { borderColor: '#1e6b1e', backgroundColor: 'rgba(34, 139, 34, 0.04)' } }}
                   variant="outlined"
                   fullWidth
-                  color="secondary"
                   onClick={() => {
                     setIsClose(false);
                     setTitle("");
@@ -259,10 +263,9 @@ export default function Home() {
                   Cancel
                 </Button>
                 <Button
-                  sx={{ my: 2 }}
+                  sx={{ my: 2, backgroundColor: '#228B22', '&:hover': { backgroundColor: '#1e6b1e' } }}
                   variant="contained"
                   fullWidth
-                  color="secondary"
                   onClick={() => {
                     isUpdating ? submitUpdatedTask() : submitTask();
                   }}
@@ -283,7 +286,8 @@ export default function Home() {
             label="Sort"
             defaultValue="Newest First"
             size="small"
-            color="secondary"
+            color="success"
+            sx={{ '& .MuiInput-underline:after': { borderBottomColor: '#228B22' }, '& .MuiInputLabel-root.Mui-focused': { color: '#228B22' } }}
           >
             {sortOptions.map((option) => (
               <MenuItem
@@ -299,7 +303,7 @@ export default function Home() {
           </TextField>
         </div>
         {isLoading ? (
-          <div style={{ textAlign: "center", color: "#4a478b" }}>
+          <div style={{ textAlign: "center", color: "#228B22" }}>
             <h2>Loading...</h2>
           </div>
         ) : (
@@ -313,19 +317,22 @@ export default function Home() {
                   </div>
                   <div className="actions">
                     <ModeEditOutlinedIcon
-                      htmlColor="orange"
+                      htmlColor="#228B22"
+                      sx={{ cursor: "pointer", "&:hover": { color: "#1e6b1e" } }}
                       onClick={() => {
                         updateTask(task.id, task.title, task.description);
                       }}
                     />
                     <CheckCircleOutlinedIcon
-                      htmlColor="green"
+                      htmlColor="#228B22"
+                      sx={{ cursor: "pointer", "&:hover": { color: "#1e6b1e" } }}
                       onClick={() => {
                         markAsDone(task.id, task.title, task.description);
                       }}
                     />
                     <HighlightOffIcon
-                      htmlColor="red"
+                      htmlColor="#228B22"
+                      sx={{ cursor: "pointer", "&:hover": { color: "#1e6b1e" } }}
                       onClick={() => {
                         deleteTask(task.id);
                       }}
