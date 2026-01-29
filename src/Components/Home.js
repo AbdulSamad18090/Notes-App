@@ -167,6 +167,7 @@ export default function Home() {
 
   return (
     <>
+      <h1 className="page-title">Todo List</h1>
       <div className="header">
         <p>Today is</p>
         <h1>{dayToString()}</h1>
